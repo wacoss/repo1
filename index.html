@@ -1,0 +1,26 @@
+<!-- 
+  Width 10000px is quite wide, but it has room for new "max", also because Facebook's "adaptation" means only shrinking
+  the Page plugin to fit smaller container. To use Page plugin with larger container than 500px (current max.) you could try
+  to add example Bootstrap class '.center-block' which would center the Page plugin inside larger container.
+-->
+<div class="row">
+  <div class="column-xs-6">
+    <div class="fb-page center-block" data-width="10000" data-adapt-container-width="true" data-href="https://www.facebook.com/facebook"></div>
+  </div>
+</div>
+
+<script>
+var TIMEOUT = null;
+$(window).on('resize', function() {
+    if(TIMEOUT === null) {
+        TIMEOUT = window.setTimeout(function() {
+            TIMEOUT = null;
+            //fb_iframe_widget class is added after first FB.FXBML.parse()
+            //fb_iframe_widget_fluid is added in same situation, but only for mobile devices (tablets, phones)
+            //By removing those classes FB.XFBML.parse() will reset the plugin widths.
+            $('.fb-page').removeClass('fb_iframe_widget fb_iframe_widget_fluid');
+            FB.XFBML.parse();
+        }, 300);
+    }
+});
+</script>
