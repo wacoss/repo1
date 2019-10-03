@@ -1,41 +1,13 @@
 <html>
 <head>
 
-  <title>Title5</title>
+  <title>Title6</title>
   
   
 </head>
 <body>  
-<!-- 
-  Width 10000px is quite wide, but it has room for new "max", also because Facebook's "adaptation" means only shrinking
-  the Page plugin to fit smaller container. To use Page plugin with larger container than 500px (current max.) you could try
-  to add example Bootstrap class '.center-block' which would center the Page plugin inside larger container.
--->
-<div class="row">
-  <div class="column-xs-6">
-    <div class="fb-page center-block" data-width="100%" data-adapt-container-width="true" data-href="https://www.facebook.com/agendabiobio/"></div>
-  </div>
-</div>
-
-<script>
-let TIMEOUT = null;
-window.onresize = () => {
-  if(TIMEOUT === null) {
-    TIMEOUT = window.setTimeout(() => {
-      TIMEOUT = null;
-      //fb_iframe_widget class is added after first FB.FXBML.parse()
-      //fb_iframe_widget_fluid is added in same situation, but only for mobile devices (tablets, phones)
-      //By removing those classes FB.XFBML.parse() will reset the plugin widths.
-
-      document.querySelector('.fb-page').classList.remove('fb_iframe_widget');
-      document.querySelector('.fb-page').classList.remove('fb_iframe_widget_fluid')
-      FB.XFBML.parse();
-    }, 300);
-  }
-}
-</script>
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-587c6946-4346-45a1-a35f-812681cd9fb8"></div>
 
 </body>
-  <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v4.0"></script>
 </html>
